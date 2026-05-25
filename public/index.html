@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>AI Cybersecurity SOC Dashboard</title>
+   <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/public/style.css"/>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- ================================= -->
+    <!-- HEADER -->
+    <!-- ================================= -->
+
+    <header class="header">
+
+      <div>
+
+        <h1>
+          🛡️ AI Cybersecurity SOC Dashboard
+        </h1>
+
+        <p class="subtitle">
+          Real-Time Threat Detection &
+          AI Incident Analysis
+        </p>
+
+      </div>
+
+    </header>
+
+    <!-- ================================= -->
+    <!-- INPUT CARD -->
+    <!-- ================================= -->
+
+    <div class="card input-card">
+
+      <div class="card-header">
+
+        <h2>
+          Security Log Analysis
+        </h2>
+
+      </div>
+
+      <label for="logs">
+
+        Security Logs
+
+      </label>
+
+      <textarea
+        id="logs"
+        placeholder="Paste your security logs here..."
+      ></textarea>
+
+      <div class="btn-row">
+
+        <button
+          class="btn-primary"
+          id="analyzeBtn"
+          onclick="analyzeThreats()"
+        >
+
+          Analyze Threats
+
+        </button>
+
+        <button
+          class="btn-secondary"
+          onclick="loadSample()"
+        >
+
+          Load Sample
+
+        </button>
+
+        <button
+          class="btn-secondary"
+          onclick="clearAll()"
+        >
+
+          Clear
+
+        </button>
+
+      </div>
+
+      <div
+        id="error"
+        class="error hidden"
+      ></div>
+
+    </div>
+
+    <!-- ================================= -->
+    <!-- RESULTS -->
+    <!-- ================================= -->
+
+    <div
+      id="results"
+      class="hidden"
+    >
+
+      <!-- ============================= -->
+      <!-- STATS CARDS -->
+      <!-- ============================= -->
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+
+          <div class="stat-title">
+            Risk Score
+          </div>
+
+          <div
+            class="stat-value"
+            id="riskScore"
+          >
+            -
+          </div>
+
+        </div>
+
+        <div class="stat-card">
+
+          <div class="stat-title">
+            Threat Count
+          </div>
+
+          <div
+            class="stat-value"
+            id="threatCount"
+          >
+            0
+          </div>
+
+        </div>
+
+        <div class="stat-card">
+
+          <div class="stat-title">
+            Parsed Logs
+          </div>
+
+          <div
+            class="stat-value"
+            id="logCount"
+          >
+            0
+          </div>
+
+        </div>
+
+        <div class="stat-card">
+
+          <div class="stat-title">
+            Analysis Time
+          </div>
+
+          <div
+            class="stat-value"
+            id="analysisTime"
+          >
+            -
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ============================= -->
+      <!-- MAIN GRID -->
+      <!-- ============================= -->
+
+      <div class="dashboard-grid">
+
+        <!-- Threats -->
+
+        <div class="card dashboard-card">
+
+          <div class="card-header">
+
+            <h2>
+              🚨 Detected Threats
+            </h2>
+
+          </div>
+
+          <div id="threats"></div>
+
+        </div>
+
+        <!-- MITRE -->
+
+        <div class="card dashboard-card">
+
+          <div class="card-header">
+
+            <h2>
+              🎯 MITRE ATT&CK Mapping
+            </h2>
+
+          </div>
+
+          <div id="mitre"></div>
+
+        </div>
+
+        <!-- Threat Intel -->
+
+        <div class="card dashboard-card">
+
+          <div class="card-header">
+
+            <h2>
+              🌍 Threat Intelligence
+            </h2>
+
+          </div>
+
+          <div id="intel"></div>
+
+        </div>
+
+        <!-- CVEs -->
+
+        <div class="card dashboard-card">
+
+          <div class="card-header">
+
+            <h2>
+              🛠️ Related CVEs
+            </h2>
+
+          </div>
+
+          <div id="cves"></div>
+
+        </div>
+
+      </div>
+
+      <!-- ============================= -->
+      <!-- REPORT SECTION -->
+      <!-- ============================= -->
+
+      <div class="card report-card">
+
+        <div class="card-header report-header">
+
+          <h2>
+            📄 Incident Report
+          </h2>
+
+          <button
+            class="btn-primary"
+            onclick="downloadReport()"
+          >
+
+            Download Report
+
+          </button>
+
+        </div>
+
+        <pre id="report"></pre>
+
+      </div>
+
+      <!-- ============================= -->
+      <!-- RECOMMENDATIONS -->
+      <!-- ============================= -->
+
+      <div class="card report-card">
+
+        <div class="card-header">
+
+          <h2>
+            ✅ Security Recommendations
+          </h2>
+
+        </div>
+
+        <pre id="recommendations"></pre>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="/public/script.js"></script>
+
+</body>
+</html>
