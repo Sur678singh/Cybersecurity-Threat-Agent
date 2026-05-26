@@ -15,7 +15,7 @@ const SAMPLE_LOGS = `
 // BACKEND API
 // ======================================
 
-const API_URL ="http://localhost:8000";
+const API_URL ="https://cybersecurity-threat-agent.onrender.com";
 
 // ======================================
 // LOAD SAMPLE LOGS
